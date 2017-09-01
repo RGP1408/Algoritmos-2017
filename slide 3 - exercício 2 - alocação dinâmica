@@ -17,7 +17,8 @@ void alocaVetor (int n) {
    int *v, i = 0;
 
    v = (int *) malloc(n * sizeof(int));
-
+  
+   //verifica se é possível alocar ou não o espaço requisitado.  
    if (v != NULL) {
 
      leVetor(v,5);
@@ -31,14 +32,13 @@ void leVetor(int *v, int n) {
 
     int i = 0;
 
-    /* semente para funçao rand, toda vez que inicializar,
-   gerará números novos */
+    /* semente para funçao rand, toda vez que o programa rodar, gerará números novos. */
    srand(time(NULL));
 
 
     while (i < n) {
 
-         //função rand() gera números aleatórios toda vez que inicializada
+         //função rand() gera números aleatórios toda vez que inicializada.
          v[i] = rand () % 1000;
 
          printf("%d ", v[i]);
