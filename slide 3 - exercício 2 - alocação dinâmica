@@ -24,6 +24,7 @@ void alocaVetor (int n) {
      leVetor(v,5);
 
      free(v);
+     v = NULL;
 
    } else printf("Impossivel alocar o espaco requisitado\n");
 
