@@ -48,6 +48,7 @@ void AlocaVetor (int n) {
     } else printf("Impossivel alocar o espca requisitado\n");
 
     free(v);// libera o espaço reservado para o vetor.
+    v = NULL;
 }
 
 int MaiorNoFinal(int *v, int n) {
