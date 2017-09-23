@@ -1,0 +1,86 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int **AlocaMatriz(int N, int M);
+void LeMatriz(int **X, int N, int M);
+void ImprimeMatriz(int **X, int N, int M);
+
+int main (void) {
+
+    int **A, NA, MA;
+
+    printf("\nDigite a qntd de linhas e colunas de A:\n");
+
+    scanf("%d", &NA);
+    scanf("%d", &MA);
+
+    A = AlocaMatriz(NA,MA);
+    ImprimeMatriz(A,NA,MA);
+
+    free(A);
+    A = NULL;
+
+    return 0;
+
+}
+
+int **AlocaMatriz(int N, int M) {
+
+    int **X, i, j;
+
+    //Alocando a Matriz
+    X = (int**) calloc(N, sizeof(int*));
+
+    for (i = 0; i < N; i++) {
+
+        X[i] = (int*) calloc(M, sizeof(int));
+
+        for (j = 0; j < M; j++);
+
+    }
+
+    // caso espaço solicitado não esteja disponível
+    if (X != NULL) {
+
+        printf("\nAgora digite os elementos da matriz : \n");
+
+        LeMatriz(X,N,M);
+
+    } else printf("\nNao e posivel reservar espaco solicitado \n");
+
+    return X;
+
+}
+
+void LeMatriz(int **X, int N, int M) {
+
+   int i,j;
+
+   for (i = 0; i < N; i++) {
+
+    for (j = 0; j < M; j++) {
+
+        scanf("%d", &X[i][j]);
+    }
+   }
+
+}
+
+void ImprimeMatriz(int **X, int N, int M) {
+
+   int i, j;
+
+   printf("\nMatriz impressa : \n");
+
+   for (i = 0; i < N; i++) {
+
+      printf("\n");
+
+      for (j = 0; j < M; j++)
+
+         printf("%d ", X[i][j]);
+
+   }
+   printf("\n");
+}
+
