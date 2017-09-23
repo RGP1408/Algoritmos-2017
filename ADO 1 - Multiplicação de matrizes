@@ -1,13 +1,16 @@
+/* Dadas duas matrizes Amxn e Bnxp. Obter a matriz Cmxp onde C = AxB */
+
 #include <stdio.h>
 #include <stdlib.h>
 
 int **AlocaMatriz(int N, int M);
 void LeMatriz(int **X, int N, int M);
 void ImprimeMatriz(int **X, int N, int M);
+int  MultiplicaMatrizes(int **A, int **B, int NA, int MA, int NB, int MB);
 
 int main (void) {
 
-    int **A, NA, MA;
+    int **A, **B, NA, MA, NB, MB;
 
     printf("\nDigite a qntd de linhas e colunas de A:\n");
 
@@ -15,10 +18,21 @@ int main (void) {
     scanf("%d", &MA);
 
     A = AlocaMatriz(NA,MA);
-    ImprimeMatriz(A,NA,MA);
+
+    printf("\nDigite a qntd de linhas e colunas de B:\n");
+
+    scanf("%d", &NB);
+    scanf("%d", &MB);
+
+    B = AlocaMatriz(NB,MB);
+
+    MultiplicaMatrizes(A,B,NA,MA,NB,MB);
 
     free(A);
     A = NULL;
+
+    free(B);
+    B = NULL;
 
     return 0;
 
@@ -51,7 +65,6 @@ int **AlocaMatriz(int N, int M) {
     return X;
 
 }
-
 void LeMatriz(int **X, int N, int M) {
 
    int i,j;
@@ -65,7 +78,6 @@ void LeMatriz(int **X, int N, int M) {
    }
 
 }
-
 void ImprimeMatriz(int **X, int N, int M) {
 
    int i, j;
@@ -82,5 +94,38 @@ void ImprimeMatriz(int **X, int N, int M) {
 
    }
    printf("\n");
+}
+int  MultiplicaMatrizes(int **A, int **B, int NA, int MA, int NB, int MB) {
+
+   int **C, i, j, k;
+
+   if (MA == NB) {
+
+   //Alocando C separadamente sem alocamatriz()
+   C = (int**) calloc(NA, sizeof(int*));
+
+   for(i = 0; i < NA; i++) {
+
+    C[i] = (int*) calloc(MB, sizeof(int));
+
+    for(j = 0; j < MB; j++);
+   }
+
+   //Multiplicacao das matrizes
+   for (i = 0; i < NA; i++) {
+
+    for (j = 0; j < MB; j++) {
+
+        for (k = 0; k < NA; k++)
+            C[i][j] += A[i][k]*B[k][i];
+    }
+   }
+
+    ImprimeMatriz(C,NA,MB);
+
+    free(C);
+    C = NULL;
+
+   } else printf("\nCondicao de multiplicacao invalida!!qtd de colunas de A devem iguais as linhas de B\n");
 }
 
