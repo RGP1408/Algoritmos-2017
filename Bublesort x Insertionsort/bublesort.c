@@ -21,6 +21,9 @@ int main (void) {
 
 	bublesort(A, n);
 	print(A, n);
+	
+	free(A)
+	A = NULL;	
 
 	return 0;
 }
