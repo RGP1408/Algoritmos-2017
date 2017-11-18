@@ -12,14 +12,14 @@ void mostrar (int *v, int n);
 
 int main (void) {
 
-	int A[5] = {1,3,5,7,9}, B[5] = {2,4,6,8,10}, *v, n3;
+	int A[5] = {1, 3, 5, 7, 9}, B[5] = {2, 4, 6, 8, 10}, *v, n3;
 
+	v = intercala(A, 5, B, 5, &n3);
 
-	v = intercala(A,5,B,5,&n3);
-
-	mostrar(v,n3);
+	mostrar(v, n3);
 
 	free(v);
+	
 	v = NULL;
 
     return 0;
@@ -29,14 +29,13 @@ int *intercala (int A[], int n1, int B[], int n2, int *n3) {
 
     int *C, i, j, k;
 
-    *n3 =  n1 + n2;
+    *n3 =  n1+n2;
 
     C = (int*) calloc(*n3, sizeof(int));
 
     if (C != NULL) {
      
         i = j = k = 0;
-
 
         while (i < n1 && j < n2) {
 
