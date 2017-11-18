@@ -24,7 +24,7 @@ int main (void) {
 
 void rearranja (int v[], int n) {
 
-	int i = 1; int j = n-1;
+	int i = 1, j = n-1;
 
 	while (i < j) {
 
