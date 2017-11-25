@@ -8,17 +8,18 @@
 
 void mergesort (int v[], int p, int r);
 void intercala (int v[], int p, int q, int r);
-void print(int v[], int n);
+void print (int v[], int n);
 
 int main (void) {
 
 	int i, v[5];
-
+        
+	// semente de rand que gera números aleatórios
 	srand(time(NULL));
 
 	while (i < 5) {
 
-		v[i] = rand() % 100;
+		v[i] = rand() % 100;// fun rand
 		i++;
 	}
 
