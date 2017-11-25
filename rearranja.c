@@ -1,7 +1,7 @@
-//Escreva uma função que selecione o primeiro elemento de um vetor, 
-//e rearranje o vetor de forma que todos os elementos menor ou igual 
-//ao primeiro elemento fiquem a sua esquerda e os maiores a sua direita.
-//Se o vetor informado for 
+// Escreva uma função que selecione o primeiro elemento de um vetor, 
+// e rearranje o vetor de forma que todos os elementos menor ou igual 
+// ao primeiro elemento fiquem a sua esquerda e os maiores a sua direita.
+// Se o vetor informado for 
 //	{5, 6, 2, 7, 9, 1, 8, 3, 7} após ser rearranjado teríamos 
 //	{1, 3, 2, 5, 9, 7, 8, 6, 7}. 
 //  Note que o vetor ainda não está ordenado */
