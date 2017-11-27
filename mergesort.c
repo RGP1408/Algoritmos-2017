@@ -6,8 +6,8 @@
 #include <stdlib.h>
 #include <time.h>
 
-void mergesort (int v[], int p, int r);
-void intercala (int v[], int p, int q, int r);
+void mergesort (int v[], int p, int n);
+void intercala (int v[], int p, int q, int n);
 void print (int v[], int n);
 
 int main (void) {
@@ -19,62 +19,62 @@ int main (void) {
 
 	while (i < 5) {
 
-		v[i] = rand() % 100;// fun rand
+		v[i] = rand() % 100;// função rand
 		i++;
 	}
 
-	mergesort(v,0,5);
-	print(v,5);
+	mergesort(v, 0, 5);
+	print(v, 5);
 	
 	return 0;
 }
 
-void mergesort (int v[], int p, int r) {
+void mergesort (int v[], int p, int n) {
 
-	int q = (p+r)/2;
+	int q = (p+n)/2;
 
-	if (p < r-1) {
+	if (p < n-1) {
 
           mergesort(v, p, q);
-          mergesort(v, q, r);
-          intercala(v, p, q, r);
+          mergesort(v, q, n);
+          intercala(v, p, q, n);
 
 	}
 }
 
-void intercala (int v[], int p, int q, int r) {
+void intercala (int v[], int p, int q, int n) {
 
 	int i, j, k, *w;
 
-	w = (int *) calloc((r-p), sizeof(int));
+	w = (int *) calloc((n-p), sizeof(int));
 
 	if (w != NULL) {
 
 		i = p; j = q; k = 0;
 
-		while (i < q && j < r) {
+		while (i < q && j < n) {
 
-			if (v[i] < v[j]) w[k++] = v[i++];
-			   else          w[k++] = v[j++];
+			if (v[i] <= v[j]) w[k++] = v[i++];
+			   else           w[k++] = v[j++];
 
 		}
 
 		while (i < q)
 			w[k++] = v[i++];
 
-		while (j < r)
+		while (j < n)
 			w[k++] = v[j++];
 
-		for (i = p; i < r; i++) v[i] = w[i-p];
+		for (i = p; i < n; i++) v[i] = w[i-p];
 
-			free(w);
+		  free(w);
 		  w = NULL;
 
 	} else printf("Não é possivel reservar espaço solicitado\n");
 
 } 
 
-void print(int v[], int n) {
+void print (int v[], int n) {
 
 	int i = 0;
 
